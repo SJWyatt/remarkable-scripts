@@ -1,4 +1,19 @@
 #!/usr/bin/python3
+"""
+Author: Steven Wyatt
+Date: 2023-03-17
+Description: This script searches for remarkable notebook files.
+
+Note: I have only tested this with v5 files. Though I believe that the metadata doesn't change that much so it should work with other versions.
+
+Usage:
+    python3 find_notebook.py -n <notebook_name> [-f <folder>] [-d] [-e] [-x]
+    -n, --notebook_name: The name of the notebook to find, or a search string to use.
+    -f, --folder: The folder to search in (Default: '~/.local/share/remarkable/xochitl')
+    -d, --deleted: Whether to search for deleted notebooks as well. (Default: False)
+    -e, --exact: Whether to search for an exact notebook name match. (Default: False)
+    -x, --extra: Whether to print additional information about each notebook. (Default: False)
+"""
 from pathlib import Path
 import json
 import argparse
@@ -52,7 +67,7 @@ if __name__ == "__main__":
                 # Parse the json string
                 json_data = json.loads(data)
         except json.JSONDecodeError as e:
-            print(f"{file.name}\n\tError: {e}")
+            print(f"{file.stem}\n\tError: {e}")
             continue
 
         # Check if the notebook name is in the json data
