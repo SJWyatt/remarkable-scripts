@@ -1,5 +1,5 @@
 # remarkable-scripts
-A collection of useful scripts I find useful for interfacing with my remarkable. 
+A collection of scripts I find useful for interfacing with my remarkable. 
 
 ### find_notebooks.py
 A python script to help in searching for notebooks. 
